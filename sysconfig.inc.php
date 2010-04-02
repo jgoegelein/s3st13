@@ -94,7 +94,7 @@ define('LANGUAGES_BASE_DIR', LIB_DIR.'lang'.DIRECTORY_SEPARATOR);
 
 // senayan web doc root dir
 $temp_senayan_web_root_dir = preg_replace('@admin.*@i', '', dirname($_SERVER['PHP_SELF']));
-define('SENAYAN_WEB_ROOT_DIR', $temp_senayan_web_root_dir.(preg_match('@\/$@i', $temp_senayan_web_root_dir)?'':'/'));
+define('SENAYAN_WEB_ROOT_DIR', ($temp_senayan_web_root_dir==DIRECTORY_SEPARATOR)?'/':$temp_senayan_web_root_dir);
 
 // javascript library web root dir
 define('JS_WEB_ROOT_DIR', SENAYAN_WEB_ROOT_DIR.'js/');
