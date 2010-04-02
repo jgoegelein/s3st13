@@ -33,7 +33,7 @@ require SIMBIO_BASE_DIR.'simbio_FILE/simbio_file_upload.inc.php';
 $can_read = utility::havePrivilege('membership', 'r');
 $can_write = utility::havePrivilege('membership', 'w');
 
-if (!$can_read) {
+if (!$can_write) {
     die('<div class="errorBox">'.__('You don\'t have enough privileges to access this area!').'</div>');
 }
 
@@ -108,7 +108,7 @@ if (isset($_POST['doImport'])) {
                     $member_id = preg_replace('@^\\\s*'.$field_enc.'@i', '', $field[0]);
                     $member_id = '\''.$member_id.'\'';
                     $member_name = '\''.$field[1].'\'';
-                    $gender = $field[2];
+                    $gender = $field[2]?(int)$field[2]:'NULL';
                     $member_type_id = utility::getID($dbs, 'mst_member_type', 'member_type_id', 'member_type_name', $field[3], $mtype_id_cache);
                     $member_email = $field[4]?'\''.$field[4].'\'':'NULL';
                     $member_address = $field[5]?'\''.$field[5].'\'':'NULL';
@@ -190,7 +190,7 @@ $form->addTextField('text', 'fieldSep', __('Field Separator').'*', ''.htmlentiti
 //  field enclosed
 $form->addTextField('text', 'fieldEnc', __('Field Enclosed With').'*', ''.htmlentities('"').'', 'style="width: 10%;"');
 // number of records to import
-$form->addTextField('text', 'recordNum', __('Number of Records To Export (0 for all records)'), '0', 'style="width: 10%;"');
+$form->addTextField('text', 'recordNum', __('Number of Records To Import (0 for all records)'), '0', 'style="width: 10%;"');
 // records offset
 $form->addTextField('text', 'recordOffset', __('Start From Record'), '1', 'style="width: 10%;"');
 // output the form

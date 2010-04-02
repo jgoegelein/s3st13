@@ -83,6 +83,10 @@ if (isset($_POST['doExport'])) {
             if ($all_data_q->num_rows > 0) {
                 header('Content-type: text/plain');
                 header('Content-Disposition: attachment; filename="senayan_member_export.csv"');
+                // add heading line
+                    $buffer = '"member_id"'.$sep.'"member_name"'.$sep.'"gender"'.$sep.'"mt.member_type_name"'.$sep.'"member_email"'.$sep.'"member_address"'.$sep.'"postal_code"'.$sep.'"inst_name"'.$sep.'"is_new"'.$sep.'"member_image"'.$sep.'"pin"'.$sep.'"member_phone"'.$sep.'"member_fax"'.$sep.'"member_since_date"'.$sep.'"register_date"'.$sep.'"expire_date"'.$sep.'"member_notes"';
+                    echo $buffer;
+                    echo $rec_sep;
                 while ($member_data = $all_data_q->fetch_assoc()) {
                     $buffer = null;
                     foreach ($member_data as $fld_data) {
