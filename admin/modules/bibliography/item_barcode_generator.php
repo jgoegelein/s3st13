@@ -169,11 +169,11 @@ if (isset($_GET['action']) AND $_GET['action'] == 'print') {
                 $html_str .= substr($barcode[0], 0, $barcode_cut_title).'...';
             } else { $html_str .= $barcode[0]; }
             $html_str .= '</div>';
-            $html_str .= '<img src="'.SENAYAN_WEB_ROOT_DIR.IMAGES_DIR.'/barcodes/'.str_replace(array(' '), '_', $barcode[1]).'.png" style="width: '.$barcode_scale.'%;" border="0" />';
+            $html_str .= '<img src="'.SENAYAN_WEB_ROOT_DIR.IMAGES_DIR.'/barcodes/'.str_replace(array(' '), '_', $barcode[1]).'.png" style="height: '.$barcode_scale.'%; width: '.$barcode_scale.'%;" border="0" />';
             $html_str .= '</div>';
             $html_str .= '</td>';
         }
-        $html_str .= '<tr>'."\n";
+        $html_str .= '</tr>'."\n";
     }
     $html_str .= '</table>'."\n";
     $html_str .= '<script type="text/javascript">self.print();</script>'."\n";
