@@ -179,7 +179,7 @@ CREATE TABLE `mst_item_status` (
   `input_date` date DEFAULT NULL,
   `last_update` date DEFAULT NULL,
   PRIMARY KEY (`item_status_id`),
-  UNIQUE KEY `item_status_name` (`item_status_name`)
+  UNIQUE KEY `item_status_name` (`item_status_name`),
   KEY `no_loan` (`no_loan`),
   KEY `skip_stock_take` (`skip_stock_take`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -188,9 +188,9 @@ CREATE TABLE `mst_item_status` (
 -- Dumping data for table `mst_item_status`
 --
 
-INSERT INTO `mst_item_status` (`item_status_id`, `item_status_name`, `rules`, `input_date`, `last_update`) VALUES
-('R', 'Reparatur', 'a:1:{i:0;s:1:"1";}', 1, 0, '2009-08-16', '2009-08-20'),
-('NA', 'Nicht Ausleihbar', 'a:1:{i:0;s:1:"1";}', 1, 0, '2009-08-16', '2009-08-20');
+INSERT INTO `mst_item_status` (`item_status_id`, `item_status_name`, `rules`, `no_loan`, `skip_stock_take`,`input_date`, `last_update`) VALUES
+('R',  'Reparatur',        'a:1:{i:0;s:1:"1";}', 1, 0, NOW(),NOW()),
+('NA', 'Nicht Ausleihbar', 'a:1:{i:0;s:1:"1";}', 1, 0, NOW(),NOW());
 
 -- --------------------------------------------------------
 
