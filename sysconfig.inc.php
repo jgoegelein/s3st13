@@ -49,8 +49,12 @@ if ((bool) ini_get('safe_mode')) {
     define('SENAYAN_IN_SAFE_MODE', 1);
 }
 
+// set default timezone
+// for a list of timezone, please see PHP Manual at "List of Supported Timezones" section
+@date_default_timezone_set('Asia/Jakarta');
+
 // senayan version
-define('SENAYAN_VERSION', 'senayan3-stable13');
+define('SENAYAN_VERSION', 'senayan3-stable14');
 
 // senayan session cookies name
 define('SENAYAN_SESSION_COOKIES_NAME', 'SenayanAdmin');
@@ -136,9 +140,9 @@ $sysconf['baseurl'] = '';
 // change below setting according to your database configuration
 define('DB_HOST', 'localhost');
 define('DB_PORT', '3306');
-define('DB_NAME', 'senayandb');
-define('DB_USERNAME', 'senayanuser');
-define('DB_PASSWORD', 'password_senayanuser');
+define('DB_NAME', 's3st14');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', 'bekasi');
 // we prefer to use mysqli extensions if its available
 if (extension_loaded('mysqli')) {
     /* MYSQLI */
@@ -177,6 +181,9 @@ $sysconf['admin_template']['css'] = $sysconf['admin_template']['dir'].'/'.$sysco
 
 /* OPAC */
 $sysconf['opac_result_num'] = 10;
+
+/* Biblio module */
+$sysconf['biblio_result_num'] = 100;
 
 /* Promote selected title(s) to homepage setting */
 $sysconf['enable_promote_titles'] = false;
@@ -367,8 +374,16 @@ $sysconf['watermark']['alignment'] = 'BR'; #BR, BL, TR, TL, C, R, L, T, B, where
 $sysconf['watermark']['color'] = 'ffffff'; # the hex color of the text
 $sysconf['watermark']['opacity'] = '50'; #is opacity from 0 (transparent) to 100 (opaque)
 
+/**
+ * UCS global settings
+ */
+$sysconf['ucs']['enable'] = true;
+// auto delete same record on UCS?
+$sysconf['ucs']['auto_delete'] = true;
+// auto insert new record to UCS?
+$sysconf['ucs']['auto_insert'] = false;
+
 // check if session is auto started and then destroy it
 if ($is_auto = @ini_get('session.auto_start')) { define('SESSION_AUTO_STARTED', $is_auto); }
 if (defined('SESSION_AUTO_STARTED')) { @session_destroy(); }
-
 ?>

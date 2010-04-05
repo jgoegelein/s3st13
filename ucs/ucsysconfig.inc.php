@@ -106,7 +106,7 @@ define('UCS_SESSION_COOKIES_NAME', 'ucsadmin');
 // change below setting according to your database configuration
 define('DB_HOST', 'localhost');
 define('DB_PORT', '3306');
-define('DB_NAME', 'ucs');
+define('DB_NAME', 'ucsdb');
 define('DB_USERNAME', 'ucsuser');
 define('DB_PASSWORD', 'password_ucsuser');
 
@@ -180,6 +180,10 @@ $sysconf['baseurl'] = UCS_WEB_ROOT_DIR;
 
 // enable HTTPS
 $sysconf['https_enable'] = false;
+
+/* XML */
+$sysconf['enable_xml_detail'] = true;
+$sysconf['enable_xml_result'] = true;
 
 // page footer info
 $sysconf['page_footer'] = 'SLiMS Union Catalog Server';

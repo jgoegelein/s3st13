@@ -159,3 +159,46 @@ form.clock {
 .alterCell2 {
     background-color: #fff;
 }
+
+/* Visitor counter */
+#visitorCounterWrap {
+    margin: 0 auto;
+    width: 500px;
+    background: #fff;
+    border: 1px solid #999;
+    padding: 5px;
+}
+
+#visitorCounterWrap #counterInfo {
+    display: none;
+    padding: 3px;
+    border: 1px dotted #f00;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+#visitorCounterWrap .info {
+    font-weight: bold;
+    border-bottom: 1px solid #999;
+}
+
+#visitorCounterWrap legend {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+#visitorCounterWrap input[type=text] {
+    width: 100%;
+}
+
+#visitorCounterForm {
+    width: 75%;
+    float: left;
+}
+
+#visitorCounterPhoto {
+    margin-top: 10px;
+    float: right;
+    width: 100px;
+    height: 120px;
+}
